@@ -6,7 +6,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638146807220396505
+      ticks: 638149546431517717
     m_Hash: 4007186375
   m_LockFileStatus:
     m_FilePath: C:/Users/Dan/Dropbox/My PC (DESKTOP-EG1PA84)/Desktop/UNO CS/Game
@@ -15,7 +15,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638146807349847754
+      ticks: 638149546447973586
     m_Hash: 38571225
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -857,8 +857,10 @@ m_PackageAssets:
         - 1.7.1
         - 1.7.2
         - 1.7.3
+        - 1.7.4
         - 1.8.0
         - 1.8.1
+        - 1.8.2
         compatible:
         - 1.4.6
         - 1.4.7
@@ -891,8 +893,10 @@ m_PackageAssets:
         - 1.7.1
         - 1.7.2
         - 1.7.3
+        - 1.7.4
         - 1.8.0
         - 1.8.1
+        - 1.8.2
         verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director

@@ -16,13 +16,4 @@ public class ObstacleComboStats : MonoBehaviour
 
         topObstacle.transform.position = new Vector3(bottomObstacle.transform.position.x, bottomObstacle.transform.position.y + distanceBetweenTopAndBottom, bottomObstacle.transform.position.z);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(transform.position.x < -170)
-        {
-            Destroy(gameObject);
-        }
-    }
 }

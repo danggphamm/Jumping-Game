@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     // Current highscore
     public int highScore;
 
+    // Obstacles speed
+    public float obstaclesSpeed = 50f;
+
     // Play again button
     public GameObject playAgainButton;
     // QUit game button

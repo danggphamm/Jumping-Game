@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 677, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 60
+  controlID: 83
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -150,7 +150,7 @@ MonoBehaviour:
     y: 0
     width: 1536
     height: 781
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 61
+  controlID: 93
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 62
+  controlID: 94
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,13 +317,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Materials
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Materials
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Dan\Dropbox\My PC (DESKTOP-EG1PA84)\Desktop\UNO CS\Game
     Dev\H tet\H-Tet-Team\Jumping game 3D
@@ -331,9 +331,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ba3a0000
-    m_LastClickedID: 15034
-    m_ExpandedIDs: 00000000ba3a0000c63a0000
+    m_SelectedIDs: 0c4d0000
+    m_LastClickedID: 19724
+    m_ExpandedIDs: 00000000024d00000a4d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -361,7 +361,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ba3a0000
+    m_ExpandedIDs: 00000000024d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -484,7 +484,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 724effff924effff304fffff384fffff9a52ffffbc52ffff5a53ffff6253ffff9a57ffff285dffff085effff2a5effffc85effffd45effff186cffff8080ffff9680ffffdc83fffff283ffff0c84ffff2284ffffe884ffffd285fffff485ffff9686ffff2c9affff4e9afffff09afffff0c2ffff12c3ffffb4c3ffff86c6ffffa6c6ffff48c7ffff1a3a00003a3a0000fa4500001c4600003048000052480000425a0000f26000001261000092650000b26500004e690000746c0000
+      m_ExpandedIDs: 26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -544,9 +544,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 515.0622, y: 165.02124, z: -31.027441}
+    m_Target: {x: 187.62451, y: 178.72495, z: 12.998399}
     speed: 2
-    m_Value: {x: 515.0622, y: 165.02124, z: -31.027441}
+    m_Value: {x: 187.62451, y: 178.72495, z: 12.998399}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -593,13 +593,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.04679521, y: 0.003014746, z: 0.000096469965, w: 0.9989582}
+    m_Target: {x: 0.14121266, y: 0.19096893, z: -0.02725944, w: 0.97107875}
     speed: 2
-    m_Value: {x: 0.04679249, y: 0.0030145706, z: 0.000096464355, w: 0.99890006}
+    m_Value: {x: 0.14120227, y: 0.19095488, z: -0.027257435, w: 0.97100735}
   m_Size:
-    m_Target: 220.5487
+    m_Target: 4.166025
     speed: 2
-    m_Value: 220.5487
+    m_Value: 4.166025
   m_Ortho:
     m_Target: 0
     speed: 2
