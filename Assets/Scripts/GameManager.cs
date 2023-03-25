@@ -48,11 +48,11 @@ public class GameManager : MonoBehaviour
         if (isOver && !updatedText)
         {
             updatedText = true;
-            gameOverText.GetComponent<Text>().text = "Game Over!" +"\nScore: " + score.ToString() + "\nHigh score: " + highScore.ToString();
+            gameOverText.GetComponent<Text>().text = "Game Over!" + "\nScore: " + score.ToString() + "\nHigh score: " + highScore.ToString();
         }
 
         // Turn on the 2 buttons when the game is over
-        if(isOver && !playAgainButton.activeSelf)
+        if (isOver && !playAgainButton.activeSelf)
         {
             playAgainButton.SetActive(true);
             quitGameButton.SetActive(true);
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Update high score if
-        if(score > highScore)
+        if (score > highScore)
         {
             highScore = score;
 
