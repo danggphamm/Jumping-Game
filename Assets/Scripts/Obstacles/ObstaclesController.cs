@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObstaclesController : MonoBehaviour
 {
     // Speed of the obstacle
-    public float speed;
+    float speed;
     // The game manager object that contains information about the current state of the game
     GameObject gameManager;
     Vector3 startPosition;

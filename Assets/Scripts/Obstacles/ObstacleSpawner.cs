@@ -8,6 +8,12 @@ public class ObstacleSpawner : MonoBehaviour
     // The rate of spawning
     public float spawningRate = 3f;
 
+    // The rate of spawning
+    public float spawningRateType2 = 20f;
+
+    public float type2XAdjustmentRate;
+    public float timeSpawningForwardType2;
+
     // The random vertical position adjustments of the obstancles
     public float verticalAdjustmentRate = 20f;
 
@@ -20,6 +26,11 @@ public class ObstacleSpawner : MonoBehaviour
     // The obstacle
     public GameObject obstacle;
 
+    public float obstacleType1SpawningRate;
+
+    // The obstacle
+    public GameObject obstacleType2;
+
     // The reward obstacles type 1
     public GameObject goodObstacleType1;
 
@@ -28,15 +39,20 @@ public class ObstacleSpawner : MonoBehaviour
 
     // The chance of spawning reward - type 1 - in percent
     public float rewardType1SpawningRatio = 15f;
-    bool spawnedType1 = false;
 
     // The chance of spawning reward - type 2 - in percent
     public float rewardType2SpawningRatio = 25f;
-    bool spawnedType2 = false;
+
+    bool spawnedObstacle = false;
+    bool decidedTurn = true;
+    int turn = 0;
 
 
     // the random y position of the new obstacle
     float newY = 0f;
+
+    bool spawned = false;
+    bool spawnedType2 = false;
 
     public List<GameObject> obstacles = new List<GameObject>();
 
@@ -58,50 +74,88 @@ public class ObstacleSpawner : MonoBehaviour
     {
         currentTime = Time.time;
 
-        // Spawn obstacle every spawningrate
-        if ((currentTime - lastTime)> spawningRate && !gameManager.GetComponent<GameManager>().isOver)
+        if (!decidedTurn)
         {
-            // Update last spwaning time
-            lastTime = currentTime;
-
-            spawnedType1 = false;
-            spawnedType2 = false;
-            // Calculate the random position of the new obstacle
-            newY = transform.position.y - verticalAdjustmentRate / 2 + Random.Range(0, verticalAdjustmentRate + 1);
-            Vector3 newPosition = new Vector3(transform.position.x, newY, transform.position.z);
-            GameObject instance = Instantiate(obstacle, newPosition, transform.rotation);
-            obstacles.Add(instance);
-        }
-
-        // Randomly spawn rewards type 1
-        if ((currentTime - lastTime) - spawningRate / 2 < 0.1f && !gameManager.GetComponent<GameManager>().isOver && !spawnedType1)
-        {
-            // Spawn reward at most one per cycle
-            spawnedType1 = true;
-
-            // The rate of reward type 1
-            if (Random.Range(0, 100) < rewardType1SpawningRatio && newY != 0f)
+            if(Random.Range(0, 100) < obstacleType1SpawningRate)
             {
-                Vector3 newPosition = new Vector3(transform.position.x, newY - verticalAdjustmentRateRewardType1 / 2 + Random.Range(0, verticalAdjustmentRateRewardType1 + 1), transform.position.z);
-                GameObject instance = Instantiate(goodObstacleType1, newPosition, transform.rotation);
-                obstacles.Add(instance);
+                turn = 0;
             }
+            else
+            {
+                turn = 1;
+            }
+            decidedTurn = true;
         }
 
-        // Randomly spawn rewards type 2
-        else if ((currentTime - lastTime) - spawningRate / 2 < 0.1f && !gameManager.GetComponent<GameManager>().isOver && !spawnedType2)
+        if (turn == 0)
         {
-            // Spawn reward at most one per cycle
-            spawnedType2 = true;
-
-            // The rate of reward type 2
-            if (Random.Range(0, 100) < rewardType2SpawningRatio )
+            // Spawn obstacle every spawningrate
+            if ((currentTime - lastTime) > spawningRate && !gameManager.GetComponent<GameManager>().isOver)
             {
+                // Update last spwaning time
+                lastTime = currentTime;
+
+                spawned = false;
+                // Calculate the random position of the new obstacle
+                newY = transform.position.y - verticalAdjustmentRate / 2 + Random.Range(0, verticalAdjustmentRate + 1);
                 Vector3 newPosition = new Vector3(transform.position.x, newY, transform.position.z);
-                GameObject instance = Instantiate(goodObstacleType2, newPosition, transform.rotation);
+                GameObject instance = Instantiate(obstacle, newPosition, transform.rotation);
                 obstacles.Add(instance);
+                decidedTurn = false;
+            }
+
+            // Randomly spawn rewards type 1
+            if ((currentTime - lastTime) - spawningRate / 2 < 0.1f && !gameManager.GetComponent<GameManager>().isOver && !spawned)
+            {
+                // Spawn reward at most one per cycle
+                spawned = true;
+
+                // The rate of reward type 1
+                if (Random.Range(0, 100) < rewardType1SpawningRatio && newY != 0f)
+                {
+                    Vector3 newPosition = new Vector3(transform.position.x, newY - verticalAdjustmentRateRewardType1 / 2 + Random.Range(0, verticalAdjustmentRateRewardType1 + 1), transform.position.z);
+                    GameObject instance = Instantiate(goodObstacleType1, newPosition, transform.rotation);
+                    obstacles.Add(instance);
+                }
+            }
+
+            // Randomly spawn rewards type 2
+            else if ((currentTime - lastTime) - spawningRate / 2 < 0.1f && !gameManager.GetComponent<GameManager>().isOver && !spawned)
+            {
+                // Spawn reward at most one per cycle
+                spawned = true;
+
+                // The rate of reward type 2
+                if (Random.Range(0, 100) < rewardType2SpawningRatio)
+                {
+                    Vector3 newPosition = new Vector3(transform.position.x, newY, transform.position.z);
+                    GameObject instance = Instantiate(goodObstacleType2, newPosition, transform.rotation);
+                    obstacles.Add(instance);
+                }
             }
         }
+        else
+        {
+            // Spawn obstacle every spawningrate
+            if ((currentTime - lastTime) > spawningRateType2 / 2 - 3f && !gameManager.GetComponent<GameManager>().isOver && !spawnedType2)
+            {
+                // Calculate the random position of the new obstacle
+                spawnedType2 = true;
+                Vector3 newPosition = new Vector3(transform.position.x + type2XAdjustmentRate, transform.position.y + 20, transform.position.z);
+                GameObject instance = Instantiate(obstacleType2, newPosition, transform.rotation);
+                instance.transform.Rotate(0.0f, 0.0f, Random.Range(0, 360), Space.Self);
+                obstacles.Add(instance);
+            }
+
+            if ((currentTime - lastTime) > spawningRateType2/2 && !gameManager.GetComponent<GameManager>().isOver)
+            {
+                // Update last spwaning time
+                lastTime = currentTime;
+                decidedTurn = false;
+                spawnedType2 = false;
+            }
+        }
+        
     }
 
     // reset the game
@@ -112,6 +166,10 @@ public class ObstacleSpawner : MonoBehaviour
             Destroy(obstacle);
         }
 
+        spawnedObstacle = false;
+        spawnedType2 = false;
+        spawned = false;
+        decidedTurn = true;
         lastTime = Time.time;
         GameObject instance = Instantiate(obstacle, transform.position, transform.rotation);
         obstacles.Add(instance);

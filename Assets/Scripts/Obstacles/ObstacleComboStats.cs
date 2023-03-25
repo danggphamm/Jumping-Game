@@ -6,7 +6,7 @@ public class ObstacleComboStats : MonoBehaviour
 {
     GameObject topObstacle;
     GameObject bottomObstacle;
-    public float distanceBetweenTopAndBottom = 350f;
+    public float distanceBetweenTopAndBottom;
     // Start is called before the first frame update
     void Start()
     {

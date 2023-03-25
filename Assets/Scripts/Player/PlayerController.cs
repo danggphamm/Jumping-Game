@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 100f;
+    public float topLimit;
+    public float bottomLimit;
+    float startY = 0f;
+
     Vector3 startPosition;
 
     // The game manager object that contains information about the current state of the game
@@ -14,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         startPosition = transform.position;
         gameManager = GameObject.Find("GameManager");
+        startY = transform.position.y;
     }
 
     // Update is called once per frame
@@ -34,6 +39,14 @@ public class PlayerController : MonoBehaviour
             // Reset the velocity
             GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
         }
+
+        if (!gameManager.GetComponent<GameManager>().isOver)
+        {
+            if(transform.position.y - startY < bottomLimit || transform.position.y - startY > topLimit)
+            {
+                gameManager.GetComponent<GameManager>().isOver = true;
+            }
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -48,6 +61,7 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.tag.ToLower() == "score")
         {
             gameManager.GetComponent<GameManager>().score ++;
+            Destroy(collision.collider.gameObject);
         }
     }
 
