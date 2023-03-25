@@ -9,10 +9,10 @@ Starting screen:
 ![Screenshot (5)](https://user-images.githubusercontent.com/55885808/227725312-a2fc14f5-96db-4bde-916c-cb5f730a0627.png)
 
 Added 3 features:
-- Feature 1: Collect the red crystal to get extra point.
+- Feature 1: Collect the red crystal to get 2 extra point. The red crystal stands still.
 ![Screenshot (3)](https://user-images.githubusercontent.com/55885808/227725383-ca2ad9ee-29cc-48e0-8261-14cd1d5ac160.png)
 
-- Feature 2: Collect the yellow crystal which constantly moves up and down.
+- Feature 2: Collect the yellow crystal to get 5 extra points. The yellow crystal constantly moves up and down.
 ![Capture](https://user-images.githubusercontent.com/55885808/227726100-224d0dec-102d-470f-9d95-4fdf83ab07a1.PNG)
 
 - Feature 3: Dodge the rotating pillar.
