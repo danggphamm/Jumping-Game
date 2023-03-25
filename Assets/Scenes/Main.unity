@@ -500,7 +500,7 @@ MonoBehaviour:
   goodObstacleType1: {fileID: 1703684557524871276, guid: 2e6f0197c27c30c419b62f50190d6a50, type: 3}
   goodObstacleType2: {fileID: 3677051312223132928, guid: 5099aee397756464a95946b219d05fb4, type: 3}
   rewardType1SpawningRatio: 15
-  rewardType2SpawningRatio: 5
+  rewardType2SpawningRatio: 8
   obstacles: []
 --- !u!1 &623488300
 GameObject:

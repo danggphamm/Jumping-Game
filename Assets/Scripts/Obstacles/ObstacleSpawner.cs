@@ -107,30 +107,26 @@ public class ObstacleSpawner : MonoBehaviour
             // Randomly spawn rewards type 1
             if ((currentTime - lastTime) - spawningRate / 2 < 0.1f && !gameManager.GetComponent<GameManager>().isOver && !spawned)
             {
-                // Spawn reward at most one per cycle
-                spawned = true;
-
                 // The rate of reward type 1
                 if (Random.Range(0, 100) < rewardType1SpawningRatio && newY != 0f)
                 {
                     Vector3 newPosition = new Vector3(transform.position.x, newY - verticalAdjustmentRateRewardType1 / 2 + Random.Range(0, verticalAdjustmentRateRewardType1 + 1), transform.position.z);
                     GameObject instance = Instantiate(goodObstacleType1, newPosition, transform.rotation);
                     obstacles.Add(instance);
+
+                    // Spawn reward at most one per cycle
+                    spawned = true;
                 }
-            }
-
-            // Randomly spawn rewards type 2
-            else if ((currentTime - lastTime) - spawningRate / 2 < 0.1f && !gameManager.GetComponent<GameManager>().isOver && !spawned)
-            {
-                // Spawn reward at most one per cycle
-                spawned = true;
-
+                
                 // The rate of reward type 2
-                if (Random.Range(0, 100) < rewardType2SpawningRatio)
+                else if (Random.Range(0, 100) < rewardType2SpawningRatio)
                 {
                     Vector3 newPosition = new Vector3(transform.position.x, newY, transform.position.z);
                     GameObject instance = Instantiate(goodObstacleType2, newPosition, transform.rotation);
                     obstacles.Add(instance);
+
+                    // Spawn reward at most one per cycle
+                    spawned = true;
                 }
             }
         }
